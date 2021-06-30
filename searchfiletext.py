@@ -2,9 +2,7 @@ import requests
 from bs4 import BeautifulSoup
 #import csv  #
 
-#code  = '0105563002305'
-#code = input("Please enter a id:\n")
-file = open('filecode3001-4000.txt', 'r', encoding='utf-8')
+file = open('filecode2001-3000.txt', 'r' )#You can add encoding='utf-8'
 code = file.readlines()
 #url = f'https://data.creden.co/company/general/{code}'
 
@@ -15,7 +13,6 @@ for index, line in enumerate(code):
 
     source = requests.get(url)
     soup = BeautifulSoup(source.content, 'lxml')
-
     div   = soup.find('div',id='__layout')
     table = div.find ('table', class_="table table-striped")
     courses = soup.find_all('td')
